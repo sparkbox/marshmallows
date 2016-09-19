@@ -1,0 +1,23 @@
+{
+  "name": "marshmallows",
+  "version": "0.1.0",
+  "description": "A drop-in Basic Auth middleware for Express",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "express",
+    "basic",
+    "auth"
+  ],
+  "author": "Sparkbox",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sparkbox/marshmallows"
+  },
+  "dependencies": {
+    "basic-auth": "^1.0.4"
+  }
+}
