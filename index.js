@@ -1,6 +1,13 @@
 'use strict';
 const auth = require('basic-auth');
 
+function processIsConfigured(proc) {
+  return !!proc.env.NODE_ENV &&
+    proc.env.NODE_ENV !== 'development' &&
+    !!proc.env.USER &&
+    !!proc.env.PASS;
+}
+
 /**
  * auth
  *
@@ -13,7 +20,7 @@ const auth = require('basic-auth');
  * Requires USER, PASS, and NODE_ENV environment variables.
  */
 function authHandler(req, res, next) {
-  if (!!process.env.NODE_ENV && process.env.NODE_ENV !== 'development') {
+  if (processIsConfigured(process)) {
     const user = auth(req);
 
     if (user && user.name.toLowerCase() === process.env.USER.toLowerCase() && user.pass === process.env.PASS) {
